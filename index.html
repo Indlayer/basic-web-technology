@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SHAR PEI CLUB — Chernyi Chizh</title>
-  <meta name="description" content="Питомник Черный Чиж: щенки, информация о породе, база знаний, FAQ и контакты." />
-  <!-- Стили -->
+  <title>Питомник Черный Чиж — Shar Pei Club</title>
+  <meta name="description" content="Питомник Черный Чиж — разведение шарпеев, сиба-ину, корги и померанских шпицев. Щенки, шоу-питомцы, консультации и база знаний." />
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.body.classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+
 <body>
-  <!-- Шапка -->
+  <!-- === HEADER === -->
   <header class="header">
     <div class="container nav">
-      <a href="#hero" class="logo">SHAR&nbsp;PEI&nbsp;CLUB&nbsp;–&nbsp;Chernyi&nbsp;Chizh</a>
+      <a href="#hero" class="logo">Chernyi&nbsp;Chizh</a>
 
       <nav class="nav__menu" aria-label="Основная навигация">
         <ul>
@@ -35,32 +41,29 @@
   </header>
 
   <main>
-    <!-- Герой -->
+    <!-- === HERO === -->
     <section id="hero" class="hero">
       <div class="container hero__content">
         <div class="hero__text">
-          <h1>Собаки с высоким шоу-потенциалом, и преданные домашние спутники</h1>
+          <h1>Собаки с высоким шоу-потенциалом<br>и преданные домашние спутники</h1>
           <p>Питомцы «Черный Чиж» призваны стать звёздами как на выставочном ринге, так и в вашем сердце.</p>
           <a href="#contacts" class="btn hero__btn">Подобрать собаку</a>
         </div>
-
         <div class="hero__image">
-          <img src="https://placehold.co/900x700/ddd/888?text=Фото+щенка" alt="Щенок шарпея">
+          <img src="img/24 1.png" alt="Шарпей с одуванчиком">
         </div>
       </div>
     </section>
 
-    <!-- О питомнике -->
+    <!-- === ABOUT === -->
     <section id="about" class="section about" aria-labelledby="about-title">
       <div class="container">
-        <h2 id="about-title">О ПИТОМНИКЕ</h2>
-
+        <h2 id="about-title">О питомнике</h2>
         <div class="about__grid">
           <figure class="about__figure">
-            <img src="https://placehold.co/520x360" alt="Щенок" />
-            <figcaption>Наши малыши</figcaption>
+            <img src="img/Card.png" alt="Шарпей крупным планом">
+            <figcaption>Наши питомцы</figcaption>
           </figure>
-
           <article class="about__text">
             <p>Мы занимаемся разведением собак с 1994 года, обеспечивая высокий уровень качества и заботы на протяжении многих лет.</p>
             <ul>
@@ -68,14 +71,12 @@
               <li>Более 200 собак, завоевавших титулы чемпионов в разных странах мира.</li>
             </ul>
           </article>
-
           <figure class="about__figure">
-            <img src="https://placehold.co/520x360" alt="Корги на траве" />
-            <figcaption>Дружелюбные компаньоны</figcaption>
+            <img src="img/IMG_0986 1.png" alt="Щенки питомника Черный Чиж">
+            <figcaption>Наши малыши</figcaption>
           </figure>
         </div>
 
-        <!-- Переключатели пород -->
         <nav id="breed-menu" class="breed-tabs" aria-label="Породы">
           <ul>
             <li><a href="#puppies">Шарпей</a></li>
@@ -87,276 +88,102 @@
       </div>
     </section>
 
-    <!-- Наши щенки -->
-    <section id="puppies" class="section puppies" aria-labelledby="puppies-title">
+    <!-- === PUPPIES === -->
+    <section id="puppies" class="section puppies">
       <div class="container">
-        <h2 id="puppies-title">НАШИ ЩЕНКИ</h2>
-
+        <h2>Наши щенки</h2>
         <ul class="cards">
-          <li>
-            <article class="card">
-              <figure class="card__media">
-                <img src="https://placehold.co/560x380" alt="Щенок шарпея" />
-                <figcaption class="card__title">Черный Чиж Либерти То Дисайд</figcaption>
-              </figure>
-            </article>
-          </li>
-          <li>
-            <article class="card">
-              <figure class="card__media">
-                <img src="https://placehold.co/560x380" alt="Щенок шарпея на выставке" />
-                <figcaption class="card__title">Черный Чиж Лаф Энд Дэнс</figcaption>
-              </figure>
-            </article>
-          </li>
-          <li>
-            <article class="card">
-              <figure class="card__media">
-                <img src="https://placehold.co/560x380" alt="Щенок шарпея лежит" />
-                <figcaption class="card__title">Черный Чиж Ластин Импрешн</figcaption>
-              </figure>
-            </article>
-          </li>
+          <li><figure><img src="img/Card-1.png" alt="Черный Чиж Либерти То Дисайд"><figcaption>Черный Чиж Либерти То Дисайд</figcaption></figure></li>
+          <li><figure><img src="img/Card-2.png" alt="Черный Чиж Лаф Энд Дэнс"><figcaption>Черный Чиж Лаф Энд Дэнс</figcaption></figure></li>
+          <li><figure><img src="img/Card-3.png" alt="Черный Чиж Ластин Импрешн"><figcaption>Черный Чиж Ластин Импрешн</figcaption></figure></li>
         </ul>
-
-        <p class="section__more"><a class="button-link" href="#contacts">Смотреть всех</a></p>
+        <p class="section__more"><a href="#contacts" class="button-link">Смотреть всех</a></p>
       </div>
     </section>
 
-    <!-- Почему мы -->
-    <section id="why" class="section why" aria-labelledby="why-title">
+    <!-- === WHY === -->
+    <section id="why" class="section why">
       <div class="container">
-        <h2 id="why-title">ПОЧЕМУ МЫ — ЛУЧШИЙ ВЫБОР</h2>
-
+        <h2>Почему мы — лучший выбор</h2>
         <ul class="features">
-          <li class="feature">
-            <h3>Гарантия качества</h3>
-            <p>Мы следим за условиями содержания каждого питомца.</p>
-          </li>
-          <li class="feature">
-            <h3>Документы</h3>
-            <p>Полный пакет, включая родословную РКФ/FCI.</p>
-          </li>
-          <li class="feature">
-            <h3>Выдающиеся результаты</h3>
-            <p>Множество выставочных собак, ставших чемпионами разных стран.</p>
-          </li>
-          <li class="feature">
-            <h3>Мировая доставка</h3>
-            <p>Приобретение возможно в любой точке земного шара.</p>
-          </li>
+          <li><strong>Гарантия качества</strong> — мы следим за условиями содержания каждого питомца.</li>
+          <li><strong>Документы</strong> — полный пакет, включая родословную РКФ/FCI.</li>
+          <li><strong>Выдающиеся результаты</strong> — множество выставочных собак, ставших чемпионами разных стран.</li>
+          <li><strong>Мировая доставка</strong> — возможность приобретения в любой точке мира.</li>
         </ul>
-
         <figure class="why__figure">
-          <img src="https://placehold.co/720x900" alt="Щенок на фоне природы" />
+          <img src="img/Image dog.png" alt="Шарпей на прогулке">
           <figcaption>Счастливые истории</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- О породе -->
-    <section id="breed" class="section breed" aria-labelledby="breed-title">
+    <!-- === KNOWLEDGE === -->
+    <section id="knowledge" class="section knowledge">
       <div class="container">
-        <h2 id="breed-title">О ПОРОДЕ</h2>
-
-        <figure class="breed__lead">
-          <img src="https://placehold.co/820x540" alt="Шарпей в стойке" />
-          <figcaption>Экстерьер</figcaption>
-        </figure>
-
-        <div class="breed__grid">
-          <article>
-            <h3>Внешность</h3>
-            <p>Грушевидная голова, морщинистый лоб, уши-«раковины», широкая грудь, крепкая спина и колоколообразный хвост.</p>
-          </article>
-          <article>
-            <h3>Характер и темперамент</h3>
-            <p>Спокойный компаньон, немного упрям.</p>
-          </article>
-          <article>
-            <h3>Адаптивность</h3>
-            <p>Требуют социализации и тренировок.</p>
-          </article>
-          <article>
-            <h3>Потребность в уходе</h3>
-            <p>Умеренный уход за шерстью и кожей.</p>
-          </article>
-          <article>
-            <h3>Активность</h3>
-            <p>Умеренная активность, подходят для дома.</p>
-          </article>
-        </div>
-
-        <p class="section__more"><a class="button-link" href="#contacts">Подробнее</a></p>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="section faq" aria-labelledby="faq-title">
-      <div class="container">
-        <h2 id="faq-title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
-
-        <div class="faq__items">
-          <details open>
-            <summary>Как я могу приобрести собаку из вашего питомника?</summary>
-            <p>Свяжитесь с нами по указанным контактам или заполните форму на сайте — расскажем об актуальных щенках и условиях бронирования.</p>
-          </details>
-
-          <details>
-            <summary>Есть ли у собак родословная?</summary>
-            <p>Да. Мы выдаём полный пакет документов (РКФ/FCI) согласно помёту.</p>
-          </details>
-
-          <details>
-            <summary>Осуществляете ли вы доставку за пределы вашей страны?</summary>
-            <p>Да, возможна международная доставка по согласованию.</p>
-          </details>
-
-          <details>
-            <summary>Есть ли у вас гарантия на купленную собаку?</summary>
-            <p>Мы обеспечиваем ветеринарное сопровождение и консультации по здоровью.</p>
-          </details>
-
-          <details>
-            <summary>Что включено в стоимость покупки собаки?</summary>
-            <p>Чип, ветпаспорт, график прививок, метрика/родословная и договор.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- База знаний -->
-    <section id="knowledge" class="section knowledge" aria-labelledby="knowledge-title">
-      <div class="container">
-        <h2 id="knowledge-title">БАЗА ЗНАНИЙ</h2>
-
-        <nav class="knowledge__tabs" aria-label="Категории базы знаний">
-          <ul>
-            <li><a href="#">Поведение</a></li>
-            <li><a href="#">Уход и здоровье</a></li>
-            <li><a href="#">Тренировки и воспитание</a></li>
-            <li><a href="#">Породные особенности</a></li>
-          </ul>
-        </nav>
-
+        <h2>База знаний</h2>
         <ul class="cards">
-          <li>
-            <article class="card">
-              <figure class="card__media">
-                <img src="https://placehold.co/560x360" alt="Играющие щенки" />
-                <figcaption class="card__title">Основы обучения собак</figcaption>
-              </figure>
-            </article>
-          </li>
-          <li>
-            <article class="card">
-              <figure class="card__media">
-                <img src="https://placehold.co/560x360" alt="Ребёнок с щенком" />
-                <figcaption class="card__title">Социализация щенка</figcaption>
-              </figure>
-            </article>
-          </li>
-          <li>
-            <article class="card">
-              <figure class="card__media">
-                <img src="https://placehold.co/560x360" alt="Корги в траве" />
-                <figcaption class="card__title">Особенности поведения корги</figcaption>
-              </figure>
-            </article>
-          </li>
+          <li><img src="img/img-1.png" alt="Играющие щенки"><figcaption>Основы обучения собак</figcaption></li>
+          <li><img src="img/image-1.png" alt="Ребёнок с щенком"><figcaption>Социализация щенка</figcaption></li>
+          <li><img src="img/image-2.png" alt="Корги в траве"><figcaption>Особенности поведения корги</figcaption></li>
         </ul>
-
-        <p class="section__more"><a class="button-link" href="#contacts">Больше знаний</a></p>
+        <p class="section__more"><a href="#contacts" class="button-link">Больше знаний</a></p>
       </div>
     </section>
 
-    <!-- Жизнь питомника -->
-    <section id="life" class="section life" aria-labelledby="life-title">
+    <!-- === LIFE === -->
+    <section id="life" class="section life">
       <div class="container">
-        <h2 id="life-title">ЖИЗНЬ ПИТОМНИКА</h2>
-
+        <h2>Жизнь питомника</h2>
         <article class="life__lead">
           <figure>
-            <img src="https://placehold.co/820x460" alt="Два шарпея на прогулке" />
-            <figcaption>За пределами выставочного ринга: истории успеха наших выпускников</figcaption>
+            <img src="img/Image Wrapper.png" alt="Два шарпея на прогулке">
+            <figcaption>Истории успеха наших выпускников</figcaption>
           </figure>
-          <p>Интервью с владельцами: как собаки из нашего питомника нашли своё предназначение.</p>
+          <p>Интервью с владельцами, которые делятся историями о том, как собаки из нашего питомника нашли своё предназначение.</p>
         </article>
-
-        <ul class="cards cards--sm" aria-label="Ещё истории">
-          <li>
-            <figure class="card__media">
-              <img src="https://placehold.co/360x260" alt="Корги у кирпичной стены" />
-              <figcaption class="card__title">Тенденции и новинки в мире кинологии 2024 года</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="card__media">
-              <img src="https://placehold.co/360x260" alt="Померанский шпиц" />
-              <figcaption class="card__title">Тенденции и новинки в мире кинологии 2024 года</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="card__media">
-              <img src="https://placehold.co/360x260" alt="Помёт щенков" />
-              <figcaption class="card__title">Тенденции и новинки в мире кинологии 2024 года</figcaption>
-            </figure>
-          </li>
+        <ul class="cards cards--sm">
+          <li><img src="img/photo_2024-04-06 21.06 1.png" alt="Корги у кирпичной стены"></li>
+          <li><img src="img/photo_2024-04-06 21.06 2.png" alt="Померанский шпиц"></li>
+          <li><img src="img/photo_2024-04-05 10.13 1.png" alt="Помёт щенков"></li>
         </ul>
-
-        <p class="section__more"><a class="button-link" href="#contacts">Больше новостей</a></p>
+        <p class="section__more"><a href="#contacts" class="button-link">Больше новостей</a></p>
       </div>
     </section>
 
-    <!-- Контакты/Форма -->
-    <section id="contacts" class="section contacts" aria-labelledby="contacts-title">
+    <!-- === CONTACTS === -->
+    <section id="contacts" class="section contacts">
       <div class="container">
-        <h2 id="contacts-title">МЫ ВСЕГДА РАДЫ ПОМОЧЬ</h2>
-        <p>Если у вас есть вопросы — напишите нам через форму ниже.</p>
+        <h2>Мы всегда рады помочь</h2>
+        <p>Если у вас есть вопросы или вы хотите получить дополнительную информацию, свяжитесь с нами через форму ниже.</p>
 
         <form class="form" action="#" method="post">
-          <fieldset>
-            <legend>Обратная связь</legend>
-
-            <label for="name">Имя</label>
-            <input id="name" name="name" type="text" placeholder="Введите ваше имя" required />
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="Как с вами связаться?" required />
-
-            <label for="msg">Сообщение</label>
-            <textarea id="msg" name="message" rows="5" placeholder="Ваш вопрос или комментарий"></textarea>
-
-            <button type="submit" class="btn">Отправить</button>
-          </fieldset>
+          <label><span class="sr-only">Имя</span><input type="text" name="name" placeholder="Введите ваше имя" required></label>
+          <label><span class="sr-only">Email</span><input type="email" name="email" placeholder="Как с вами связаться?" required></label>
+          <label><span class="sr-only">Сообщение</span><textarea name="message" rows="5" placeholder="Ваш вопрос или комментарий"></textarea></label>
+          <button type="submit" class="btn">Отправить</button>
         </form>
 
         <figure class="contacts__img">
-          <img src="https://placehold.co/760x420" alt="Фото питомника" />
+          <img src="img/Image Placeholder.png" alt="Фото питомника Черный Чиж">
         </figure>
       </div>
     </section>
   </main>
 
-  <!-- Футер -->
   <footer class="footer">
-    <div class="container footer__grid" aria-label="Контакты и ссылки">
+    <div class="container footer__grid">
       <div class="footer__brand">
-        <strong>SHAR PEI CLUB</strong><br>
-        <span>CHERNYI CHIZH</span>
+        <strong>SHAR PEI CLUB</strong><br><span>Черный Чиж</span>
       </div>
-
       <div class="footer__contacts">
         <h3>Контакты</h3>
         <ul>
           <li>Email: <a href="mailto:info@sharpei.club">info@sharpei.club</a></li>
           <li>Тел.: <a href="tel:+79262324307">+7 (926) 232-43-07</a></li>
         </ul>
-        <p>Мы в соцсетях: VK, Telegram, YouTube.</p>
-        <p><a href="#">Договор оферты</a> · <a href="#">Политика конфиденциальности</a></p>
       </div>
-
-      <nav class="footer__nav" aria-label="Быстрые ссылки">
+      <nav class="footer__nav">
         <ul>
           <li><a href="#about">О нас</a></li>
           <li><a href="#puppies">Щенки</a></li>
@@ -365,10 +192,20 @@
         </ul>
       </nav>
     </div>
-
     <div class="container footer__copy">
-      <small>© 2025 Chernyi Chizh. Все права защищены.</small>
+      <small>© 2025 Черный Чиж. Все права защищены.</small>
     </div>
   </footer>
 </body>
 </html>
+<script>
+  // эффект плавного появления шапки после загрузки
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+
+  // эффект затемнения и тени при скролле
+  window.addEventListener('scroll', () => {
+    document.body.classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>

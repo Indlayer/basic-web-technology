@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Черный Чиж — макет по Лабе 03</title>
+  <!-- Типографика из макета: Bebas Neue + Raleway -->
+  <!-- В учебном проекте можно подключить локальные шрифты (@font-face),
+       но для быстрого старта используем Google Fonts. При необходимости
+       замени на локальные файлы как в твоём style.css. -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* === СБРОС И БАЗА === */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Raleway", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      overflow-x: hidden; /* не допускаем горизонтального скролла */
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    
+    /* === ПАЛИТРА И ПЕРЕМЕННЫЕ (из макета) === */
+    :root {
+      --text: #272727;           /* rgba(39,39,39,1) */
+      --beige: #AB8264;          /* беж */
+      --accent: #396448;         /* акцент */
+      --accent-hover: #56986E;   /* наведение */
+      --bg: #F9F4F0;             /* фон */
+      --light-beige: #EFE9E3;
+      --container: 1200px;       /* рабочая ширина макета */
+      --gap: 24px;
+    }
+
+    /* === КОНТЕЙНЕР-ОБЁРТКА (требование Лабы 03) === */
+    .container {
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: 20px; /* чтобы контент не прилипал к краям */
+    }
+
+    /* === ТИПОГРАФИКА ПО МАКЕТУ === */
+    h1, h2, h3, .button { font-family: "Bebas Neue", sans-serif; letter-spacing: 0.02em; }
+    h1 { font-size: clamp(36px, 6vw, 70px); line-height: 1.2; }
+    h2 { font-size: clamp(36px, 5vw, 68px); line-height: 1.2; }
+    h3 { font-size: clamp(20px, 3vw, 28px); line-height: 1.2; }
+    p  { font-size: clamp(14px, 1.5vw, 18px); line-height: 1.4; }
+    nav, .meta, small { font-size: clamp(14px, 1.2vw, 16px); }
+
+    /* === ХЕДЕР === */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+    }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: var(--gap); padding: 12px 0; }
+    .brand { display: flex; align-items: baseline; gap: 12px; }
+    .brand__title { font-family: "Bebas Neue", sans-serif; font-size: 32px; color: var(--accent); }
+    .brand__phone { font-weight: 600; white-space: nowrap; }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 16px; margin: 0; padding: 0; }
+    nav a { padding: 6px 10px; border-radius: 8px; }
+    nav a:is(:hover, :focus-visible) { background: var(--light-beige); }
+
+    /* === HERO (пример позиционирования absolute + z-index) === */
+    .hero {
+      position: relative; /* для абсолютного позиционирования внутри */
+      isolation: isolate; /* новый стек контекста — надежный z-index */
+      margin-block: 16px 40px;
+      border-radius: 24px;
+      overflow: clip; /* запрещаем переполнение по Лабе */
+      background: url("https://images.unsplash.com/photo-1616126194485-8dcbb4a9a5b5?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+      min-height: clamp(220px, 40vw, 520px);
+    }
+    .hero__overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(249,244,240,0.9), rgba(249,244,240,0.1)); }
+    .hero__content { position: relative; z-index: 1; padding: clamp(24px, 6vw, 56px); max-width: 720px; }
+    .hero__kicker { text-transform: uppercase; letter-spacing: .08em; font-weight: 600; color: var(--accent); }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .button { display: inline-block; padding: 10px 18px; border-radius: 999px; background: var(--accent); color: #fff; font-size: clamp(20px, 3vw, 28px); line-height: 1.2; }
+    .button:is(:hover, :focus-visible) { background: var(--accent-hover); }
+    .button--ghost { background: transparent; color: var(--accent); outline: 1.5px solid var(--accent); }
+
+    /* === РАЗДЕЛ «ПОЧЕМУ МЫ» (4 колонки) === */
+    .why { padding-block: 48px; background: var(--light-beige); }
+    .why__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+    .why__card { background: #fff; border-radius: 20px; padding: 20px; min-height: 160px; display: grid; align-content: start; gap: 8px; }
+
+    /* === «О ПОРОДЕ» (две колонки) === */
+    .breed { padding-block: 56px; }
+    .breed__grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(16px, 4vw, 40px); align-items: center; }
+    .badge { display: inline-block; background: var(--beige); color: #fff; border-radius: 999px; padding: 6px 12px; font-weight: 600; }
+
+    /* === «НАШИ ЩЕНКИ» (карточки 3 в ряд) === */
+    .puppies { padding-block: 56px; background: #fff; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+    .card { background: var(--bg); border: 1px solid color-mix(in srgb, var(--text) 10%, transparent); border-radius: 16px; overflow: clip; display: grid; }
+    .card__body { padding: 16px; display: grid; gap: 8px; }
+    .tag { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+
+    /* === FAQ (аккордеон простой без JS) === */
+    .faq { padding-block: 56px; }
+    details { background: #fff; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 10%, transparent); padding: 12px 16px; }
+    details + details { margin-top: 12px; }
+    summary { cursor: pointer; font-weight: 600; }
+
+    /* === КОНТАКТНАЯ ФОРМА === */
+    .contact { padding-block: 56px; background: var(--light-beige); }
+    form { display: grid; gap: 12px; max-width: 720px; }
+    .field { display: grid; gap: 6px; }
+    input, textarea { border: 1px solid color-mix(in srgb, var(--text) 15%, transparent); background: #fff; padding: 12px 14px; border-radius: 12px; font: inherit; }
+    textarea { min-height: 140px; resize: vertical; }
+
+    /* === ФУТЕР === */
+    footer { padding-block: 32px; color: #fff; background: var(--accent); }
+    .footer__grid { display: grid; gap: var(--gap); grid-template-columns: 2fr 1fr 1fr; }
+    .footer__small { margin-top: 8px; opacity: .9; }
+
+    /* === АДАПТИВ === */
+    @media (max-width: 1024px) {
+      .why__grid { grid-template-columns: repeat(2, 1fr); }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .breed__grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .topbar { flex-direction: column; align-items: stretch; }
+      nav ul { justify-content: center; }
+      .why__grid, .cards { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr; }
+      .brand__title { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="brand__title">Черный Чиж</div>
+        <div class="brand__phone">+7 (926) 232-43-07</div>
+      </div>
+      <nav aria-label="Основное меню">
+        <ul>
+          <li><a href="#breed">О породе</a></li>
+          <li><a href="#puppies">Наши щенки</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero (позиционирование overlay) -->
+  <section class="hero">
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="container hero__content">
+      <div class="hero__kicker">Питомник</div>
+      <h1>Собаки с высоким шоу‑потенциалом и преданные спутники</h1>
+      <p>Наши питомцы призваны стать звёздами как на выставочном ринге, так и в вашем сердце.</p>
+      <div class="actions">
+        <a class="button" href="#puppies">Подобрать собаку</a>
+        <a class="button button--ghost" href="#contact">Связаться</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Почему мы -->
+  <section class="why">
+    <div class="container">
+      <h2>Почему мы — лучший выбор</h2>
+      <div class="why__grid" role="list">
+        <article class="why__card" role="listitem">
+          <h3>Мировая доставка</h3>
+          <p>Возможность приобрести питомца в любой точке земного шара.</p>
+        </article>
+        <article class="why__card" role="listitem">
+          <h3>Выдающиеся результаты</h3>
+          <p>Собаки‑чемпионы разных стран и многочисленные титулы.</p>
+        </article>
+        <article class="why__card" role="listitem">
+          <h3>Документы</h3>
+          <p>Полный пакет, включая родословную РКФ/FCI.</p>
+        </article>
+        <article class="why__card" role="listitem">
+          <h3>Гарантия качества</h3>
+          <p>Следим за условиями содержания каждого питомца.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- О породе -->
+  <section id="breed" class="breed">
+    <div class="container breed__grid">
+      <div>
+        <span class="badge">Шарпей</span>
+        <h2>О породе</h2>
+        <p><strong>Внешность.</strong> Грушевидная голова, морщинистое лицо, уши‑раковины, сине‑чёрный язык, крепкое телосложение и мускулистые ноги. Жёсткая шерсть подчёркивает стиль.</p>
+        <p><strong>Характер.</strong> Спокойный компаньон с умеренной активностью. Нужны социализация и тренировки.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop" alt="Шарпей крупным планом" />
+    </div>
+  </section>
+
+  <!-- Наши щенки -->
+  <section id="puppies" class="puppies">
+    <div class="container">
+      <h2>Наши щенки</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1548191265-cc70d3d45ba1?q=80&w=1200&auto=format&fit=crop" alt="Щенок 1" />
+          <div class="card__body">
+            <div class="tag">девочка • окрас: красный олень</div>
+            <h3>Черный Чиж — Ластин Импрешн</h3>
+            <p>Дата рождения: 21.07.2023 • Потенциал: шоу • Статус: в продаже</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=1200&auto=format&fit=crop" alt="Щенок 2" />
+          <div class="card__body">
+            <div class="tag">мальчик • окрас: палевый</div>
+            <h3>Черный Чиж — Лаф Энд Дэнс</h3>
+            <p>Дата рождения: 03.08.2023 • Потенциал: шоу • Статус: доступен</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1200&auto=format&fit=crop" alt="Щенок 3" />
+          <div class="card__body">
+            <div class="tag">девочка • окрас: кремовый</div>
+            <h3>Черный Чиж — Либерти То Дисайд</h3>
+            <p>Дата рождения: 12.09.2023 • Потенциал: шоу • Статус: бронь</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2>Часто задаваемые вопросы</h2>
+      <details>
+        <summary>Как купить собаку из питомника?</summary>
+        <p>Свяжитесь с нами по контактам ниже или заполните форму. Организуем встречу с питомцем и ответим на вопросы.</p>
+      </details>
+      <details>
+        <summary>Есть ли родословная?</summary>
+        <p>Предоставляем полный пакет документов, включая родословную РКФ/FCI.</p>
+      </details>
+      <details>
+        <summary>Доставка за пределы страны?</summary>
+        <p>Да, организуем безопасную доставку по миру при соблюдении требований перевозчиков.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Мы всегда рады помочь</h2>
+      <form>
+        <div class="field">
+          <label for="name">Имя</label>
+          <input id="name" name="name" placeholder="Введите ваше имя" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" placeholder="Как с вами связаться?" />
+        </div>
+        <div class="field">
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" placeholder="Ваш вопрос или комментарий"></textarea>
+        </div>
+        <button class="button" type="submit">Отправить</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer__grid">
+      <div>
+        <div class="brand__title" style="color:#fff;">Черный Чиж</div>
+        <div class="footer__small">Питомник с 1994 года. 200+ титулованных собак в разных странах мира.</div>
+      </div>
+      <div>
+        <strong>Контакты</strong>
+        <div class="footer__small">info@sharpei.club</div>
+        <div class="footer__small">+7 (926) 232-43-07</div>
+      </div>
+      <div>
+        <strong>Документы</strong>
+        <div class="footer__small">Договор оферты</div>
+        <div class="footer__small">Политика конфиденциальности</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
